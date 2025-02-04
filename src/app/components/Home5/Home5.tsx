@@ -4,38 +4,52 @@ const Home5 = () => {
     const pricingPlans: {
         name: string;
         description: string;
-        price?: number;
+        price: number;
         features: Feature[];
     }[] = [
             {
-                name: "AI Foundation",
-                description: "28 hours of learning material",
+                name: "AI for Intermediate",
+                description: "A program designed to deepen understanding of AI",
+                price: 6000,
                 features: [
-                    "Prerequisites for AI & ML",
-                    "Artificial Intelligence",
-                    "Machine Learning",
-                    "Deep Learning",
-                    "Foundation AI Projects"
+                    "Helps to choose career in AI & data science",
+                    "Advanced AI & ML concepts",
+                    "Practical industry applications",
+                    "Career guidance workshops",
+                    "Specialized project mentorship"
                 ]
             },
             {
-                name: "AI Expert",
-                description: "44 hours of learning material",
-                price: 99,
+                name: "AI for UG/PG",
+                description: "Tailored for UG/PG students, focusing on advanced AI concepts, research-oriented learning, and real-world applications",
+                price: 7000,
                 features: [
-                    "Advanced Machine Learning",
-                    "Practical Machine Learning",
-                    "Advanced Topics in Deep Learning",
-                    "Expert AI Projects"
+                    "Equipping learners with skills for innovation",
+                    "Professional growth strategies",
+                    "Advanced research methodologies",
+                    "Cutting-edge AI technologies",
+                    "Industry-aligned project development"
+                ]
+            },
+            {
+                name: "AI for Professionals",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet risus fringilla, egestas elit a, consequat augue. Phasellus sollicitudin felis mi, quis egestas ex ornare sed quis adipiscing",
+                price: 8000,
+                features: [
+                    "Advanced AI skill enhancement",
+                    "Industry-specific AI applications",
+                    "Professional networking opportunities",
+                    "Cutting-edge technology insights",
+                    "Strategic career development"
                 ]
             }
         ];
 
     return (
-        <section className="bg-white dark:bg-gray-900 min-h-screen w-full px-4 py-8 sm:px-6 lg:px-8">
+        <section id="price" className="bg-white dark:bg-gray-900 min-h-screen w-full px-4 py-8 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
                 <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
                         Artificial Intelligence Courses
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
@@ -43,27 +57,32 @@ const Home5 = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
                     {pricingPlans.map((plan, index) => (
                         <div
                             key={index}
                             className="flex flex-col h-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 transition-transform duration-300 hover:scale-105"
                         >
-                            <div className="p-6 sm:p-8 flex flex-col h-full">
+                            <div className="p-6 sm:p-8 flex flex-col h-full text-center">
                                 <div className="">
                                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                                        {plan.name}
+                                        <strong>{plan.name}</strong>
                                     </h3>
                                     <p className="text-gray-500 dark:text-gray-400 mb-6">
                                         {plan.description}
                                     </p>
+                                    <div className="mb-6">
+                                        <span className="text-3xl font-extrabold text-gray-900 dark:text-white">
+                                            <strong>₹{plan.price.toLocaleString()}</strong>
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <ul className="space-y-3 mb-8 flex-grow">
+                                <ul className="space-y-3 mb-8 flex-grow text-center">
                                     {plan.features.map((feature, featureIndex) => (
                                         <li
                                             key={featureIndex}
-                                            className="flex items-start text-gray-800 dark:text-gray-200"
+                                            className="flex items-center justify-center text-gray-800 dark:text-gray-200"
                                         >
                                             <span className="text-sm sm:text-base">
                                                 {typeof feature === 'string' ? feature : (

@@ -38,7 +38,7 @@ const Home6 = () => {
             <div className="mx-auto max-w-7xl">
                 <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
-                        Quantum Computing Courses
+                        Limitations of current approach
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-6xl mx-auto">
                         Master the powerful skills of Quantum Computing with leading industry experts from IISc and QpiAI. Learn the technical basics to advanced applications of Quantum and build your resume to be industry-ready. Master the quantum computing with Amazon Braket SDK and QpiAI Labs python notebook.

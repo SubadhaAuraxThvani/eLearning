@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
-import img1 from "@/Images/image3.png"
-import img2 from "@/Images/image4.png"
-import img3 from "@/Images/image5.png"
-import img4 from "@/Images/image6.png"
+import img1 from "@/Images/image11.png"
+import img2 from "@/Images/image12.png"
+import img3 from "@/Images/image13.png"
+import img4 from "@/Images/image14.png"
 
 interface Leader {
     name: string;
@@ -16,40 +16,30 @@ interface LeadershipTeamProps {
 
 const defaultLeaders: Leader[] = [
     {
-        name: "Leslie Alexander",
-        role: "Co-Founder / CEO",
+        name: "Rahul LR",
+        role: "PhD student, IIT Hyderabad",
         imageUrl: img1,
     },
     {
-        name: "Tony Stark",
-        role: "COO",
+        name: "Megavath Praveen",
+        role: "BTech, IIT Hyderabad",
         imageUrl: img2,
     },
     {
-        name: "Steve Roger",
-        role: "Lead Manager",
+        name: "Prof. Soumya Jana",
+        role: "IIT Hyderabad",
         imageUrl: img3,
     },
     {
-        name: "Mark Raffalo",
-        role: "Business Analyst",
+        name: "Prof. Asudeb Dutta",
+        role: "IIT Hyderabad",
         imageUrl: img4,
-    },
-    {
-        name: "Peter Parker",
-        role: "Team Head 1",
-        imageUrl: img1,
-    },
-    {
-        name: "Bendict Cummerbatch",
-        role: "Team Head 2",
-        imageUrl: img2,
     },
 ];
 
 const Home7: React.FC<LeadershipTeamProps> = ({ leaders = defaultLeaders }) => {
     return (
-        <div className="bg-white py-12 sm:py-16 md:py-24">
+        <div id="team" className="bg-white py-12 sm:py-16 md:py-24">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid gap-8 md:gap-12 lg:gap-16 xl:grid-cols-3">
                     <div className="max-w-xl mx-auto text-center xl:text-left">
@@ -64,7 +54,7 @@ const Home7: React.FC<LeadershipTeamProps> = ({ leaders = defaultLeaders }) => {
                         {leaders.map((leader, index) => (
                             <li key={index} className="group hover:bg-gray-50 rounded-lg p-4 transition-colors duration-200">
                                 <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 text-center sm:text-left">
-                                    <div className="relative size-16 flex-shrink-0">
+                                    <div className="relative size-28 flex-shrink-0">
                                         <Image
                                             className="rounded-full object-cover ring-2 ring-gray-200 group-hover:ring-indigo-500 transition-colors duration-200"
                                             src={leader.imageUrl}
