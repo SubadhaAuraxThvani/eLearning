@@ -10,6 +10,7 @@ import Home5 from "./components/Home5/Home5";
 import Home7 from "./components/Home7/Home7";
 import Home8 from "./components/Home8/Home8";
 import Home9 from "./components/Home9/Home9";
+import Video from "./components/Video/Video";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Home3/>
       <Home4/>
       <Home10/>
+      <Video/>
       <Home5/>
       <Home8/>
       <Home9/>
