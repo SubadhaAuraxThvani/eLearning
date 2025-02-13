@@ -1,8 +1,6 @@
 import Image, { StaticImageData } from 'next/image'
 import img1 from "@/Images/image11.png"
 import img2 from "@/Images/image12.png"
-import img3 from "@/Images/image13.png"
-import img4 from "@/Images/image14.png"
 
 interface Leader {
     name: string;
@@ -25,16 +23,16 @@ const defaultLeaders: Leader[] = [
         role: "BTech, IIT Hyderabad",
         imageUrl: img2,
     },
-    {
-        name: "Prof. Soumya Jana",
-        role: "IIT Hyderabad",
-        imageUrl: img3,
-    },
-    {
-        name: "Prof. Asudeb Dutta",
-        role: "IIT Hyderabad",
-        imageUrl: img4,
-    },
+    // {
+    //     name: "Prof. Soumya Jana",
+    //     role: "IIT Hyderabad",
+    //     imageUrl: img3,
+    // },
+    // {
+    //     name: "Prof. Asudeb Dutta",
+    //     role: "IIT Hyderabad",
+    //     imageUrl: img4,
+    // },
 ];
 
 const Home7: React.FC<LeadershipTeamProps> = ({ leaders = defaultLeaders }) => {

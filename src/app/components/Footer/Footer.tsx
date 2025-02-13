@@ -69,8 +69,9 @@ const Footer: React.FC = () => {
             links: [
                 { text: "Home", href: "/" },
                 { text: "About", href: "/#about" },
-                { text: "Pricing", href: "/#price" },
-                { text: "Motivation", href: "/#motivation" },
+                { text: "AI for Juniors", href: "/#juniors" },
+                // { text: "Pricing", href: "/#price" },
+                // { text: "Motivation", href: "/#motivation" },
             ]
         },
         {
@@ -79,7 +80,7 @@ const Footer: React.FC = () => {
                 { text: "Early exposure to AI", href: "/#early" },
                 { text: "Plan of Action", href: "/#action" },
                 { text: "Limitations", href: "/#limitations" },
-                { text: "AI for Juniors", href: "/#juniors" },
+
             ]
         },
         {
@@ -140,7 +141,7 @@ const Footer: React.FC = () => {
                             <span className="text-2xl font-bold">eLearning</span>
                         </Link>
                         <p className="text-gray-400 mb-6 max-w-xs mx-auto md:mx-0">
-                            Trusted in more than 100 countries & 5 million customers. Have any query?
+                            Have any query?
                         </p>
                         <Link
                             href="#section"

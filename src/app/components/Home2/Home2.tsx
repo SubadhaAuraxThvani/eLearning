@@ -9,12 +9,13 @@ export default function Home2() {
                     About Us
                 </h1>
                 <p className="text-md md:text-lg lg:text-xl sm:text-left text-center sm:pr-10">
-                    XYZ is an edtech platform designed to teach Artificial Intelligence (AI) in
-                    an engaging and practical manner. Catering to school students,
-                    graduates, and working professionals, our platform bridges the gap
-                    between traditional education and emerging technologies, equipping
-                    learners with AI skills through hands-on experiences, real-world
-                    applications, and innovative problem-solving approaches
+                    [Company Name] is a dynamic technology company that empowers
+                    businesses to unlock actionable insights through our full custom AI/ML
+                    solutions in Signal, Image, and Video processing analytics. Our platform also
+                    provides an immersive learning experience, equipping school students,
+                    undergraduate and graduate students, and working professionals with the
+                    latest skills in STEM fields, AI/ML, and emerging technologies.
+
                 </p>
             </div>
             <div className="w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0 md:pl-8 lg:pl-12">

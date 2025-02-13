@@ -12,12 +12,13 @@ export default function Home1() {
                     <div className="flex flex-col space-y-6 text-center md:text-left">
                         <div>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-4">
-                                <span className="block">Learn. Create.</span>
-                                <span className="block ">Innovate with AI.</span>
+                                <span className="block"><p className="text-orange-400">Learn.</p><p className="text-green-400">Create.</p></span>
+                                <span className="block text-blue-500">Innovate.</span>
                             </h1>
                             <p className="text-lg md:text-xl text-gray-600 max-w-xl mx-auto md:mx-0">
-                                An edtech platform designed to teach Artificial Intelligence (AI)
-                                in an engaging and practical manner
+                                A platform delivering innovative technological
+                                solutions and engaging learning experiences
+
                             </p>
                         </div>
 
@@ -27,8 +28,7 @@ export default function Home1() {
                                 className="w-full sm:w-auto shadow-md hover:shadow-lg transition-all duration-300"
                                 variant="default"
                             >
-                                <Link href="/#price">Explore Courses Prices
-                                </Link>
+                                <Link href="/#price">Explore Courses</Link>
 
                             </Button>
                             <Button
