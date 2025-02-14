@@ -3,11 +3,11 @@ import { useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-interface ContactFormData {
+interface CourseRegistrationData {
+    fullName: string;
     email: string;
-    subject: string;
-    message: string;
-    name: string;
+    phoneNumber: string;
+    courseSelection: string;
 }
 
 interface FormStatus {
@@ -15,12 +15,12 @@ interface FormStatus {
     message: string;
 }
 
-const Contact = () => {
-    const [formData, setFormData] = useState<ContactFormData>({
+const CourseRegistration = () => {
+    const [formData, setFormData] = useState<CourseRegistrationData>({
+        fullName: '',
         email: '',
-        subject: '',
-        message: '',
-        name: ''
+        phoneNumber: '',
+        courseSelection: ''
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,11 +37,12 @@ const Contact = () => {
         try {
             const templateParams = {
                 to_name: 'Admin', // Replace with recipient name
-                from_name: formData.name,
+                from_name: formData.fullName,
                 message: `
-                Subject: ${formData.subject}
+                Course Registration Details:
+                Selected Course: ${formData.courseSelection}
                 Email: ${formData.email}
-                Message: ${formData.message}
+                Phone Number: ${formData.phoneNumber}
                 `
             };
 
@@ -52,17 +53,22 @@ const Contact = () => {
                 '9PGmJIUO3qckc9tGr'
             );
 
-            setFormData({ email: '', subject: '', message: '', name: '' });
+            setFormData({
+                fullName: '',
+                email: '',
+                phoneNumber: '',
+                courseSelection: ''
+            });
+
             setFormStatus({
                 type: 'success',
-                message: 'Thank you for your message. We will get back to you soon!'
+                message: 'Registration successful! You will receive a confirmation email shortly.'
             });
         } catch (error) {
-            console.log(error);
-            
+            console.error('EmailJS Error:', error);
             setFormStatus({
                 type: 'error',
-                message: 'Failed to send message. Please try again later.'
+                message: 'Registration failed. Please try again later.'
             });
         } finally {
             setIsSubmitting(false);
@@ -73,10 +79,10 @@ const Contact = () => {
         <section className="bg-white dark:bg-gray-900">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                 <h2 className="mb-4 text-4xl md:text-5xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
-                    Contact Us
+                    AI Course Registration
                 </h2>
                 <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-                    Got a technical issue? Want to send feedback? Let us know.
+                    Register for our specialized AI courses designed for different experience levels
                 </p>
 
                 {formStatus.type && (
@@ -87,25 +93,25 @@ const Contact = () => {
                     </Alert>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            Your Name
+                        <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            Full Name
                         </label>
                         <input
                             type="text"
-                            id="name"
-                            value={formData.name}
-                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                            id="fullName"
+                            value={formData.fullName}
+                            onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
                             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                            placeholder="Your name"
+                            placeholder="Your full name"
                             required
                         />
                     </div>
 
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            Your email
+                            Email Address
                         </label>
                         <input
                             type="email"
@@ -119,33 +125,36 @@ const Contact = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            Subject
+                        <label htmlFor="phoneNumber" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            Phone Number
                         </label>
                         <input
-                            type="text"
-                            id="subject"
-                            value={formData.subject}
-                            onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                            className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
-                            placeholder="Let us know how we can help you"
+                            type="tel"
+                            id="phoneNumber"
+                            value={formData.phoneNumber}
+                            onChange={(e) => setFormData(prev => ({ ...prev, phoneNumber: e.target.value }))}
+                            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                            placeholder="Your phone number"
                             required
                         />
                     </div>
 
-                    <div className="sm:col-span-2">
-                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                            Your message
+                    <div>
+                        <label htmlFor="courseSelection" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            Select Course
                         </label>
-                        <textarea
-                            id="message"
-                            rows={6}
-                            value={formData.message}
-                            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
-                            placeholder="Leave a comment..."
+                        <select
+                            id="courseSelection"
+                            value={formData.courseSelection}
+                            onChange={(e) => setFormData(prev => ({ ...prev, courseSelection: e.target.value }))}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                             required
-                        />
+                        >
+                            <option value="">Select an AI course</option>
+                            <option value="AI for Juniors">AI for Juniors</option>
+                            <option value="AI for UG/PG">AI for UG/PG</option>
+                            <option value="AI for Professionals">AI for Professionals</option>
+                        </select>
                     </div>
 
                     <button
@@ -153,7 +162,7 @@ const Contact = () => {
                         disabled={isSubmitting}
                         className="py-3 px-5 text-sm font-medium text-center text-white bg-black rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        {isSubmitting ? 'Sending...' : 'Send message'}
+                        {isSubmitting ? 'Registering...' : 'Register Now'}
                     </button>
                 </form>
             </div>
@@ -161,4 +170,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default CourseRegistration;

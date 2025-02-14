@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import { ClerkProvider } from '@clerk/nextjs';
-import { Oswald } from 'next/font/google'
+import { Roboto} from 'next/font/google'
 
-const roboto = Oswald({
+const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
